@@ -1,3 +1,15 @@
-# [submodule "themes/stack"]
-# 	path = themes/stack
-# 	url = https://github.com/CaiJimmy/hugo-theme-stack.git
+[submodule "themes/gokarna"]
+	path = themes/gokarna
+	url = https://github.com/526avijitgupta/gokarna.git
+[submodule "themes/lowkey"]
+	path = themes/lowkey
+	url = https://github.com/nixentric/Lowkey-Hugo-Theme.git
+[submodule "themes/papermod"]
+	path = themes/papermod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
+[submodule "themes/loveit"]
+	path = themes/loveit
+	url = https://github.com/dillonzq/LoveIt.git
+[submodule "themes/stack"]
+	path = themes/stack
+	url = https://github.com/CaiJimmy/hugo-theme-stack.git
