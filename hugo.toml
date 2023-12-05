@@ -488,3 +488,4 @@ taxonomy = ["HTML", "RSS"]
 mediaType = "application/json"
 baseName = "algolia"
 isPlainText = true
+notAlternative = true
