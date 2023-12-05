@@ -80,10 +80,7 @@ url = "https://github.com/weedien/weedien.github.io"
 title = "GitHub"
 
 [params]
-# 网站默认主题 ["auto", "light", "dark"]
 defaultTheme = "auto"
-# public git repo url only then enableGitInfo is true
-# 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
 gitRepo = "https://github.com/weedien/weedien.github.io"
 # 哪种哈希函数用来 SRI, 为空时表示不使用 SRI
 # ["sha256", "sha384", "sha512", "md5"]
@@ -172,7 +169,7 @@ tileColor = "#da532c"
 [params.search]
 enable = true
 # 搜索引擎的类型 ["lunr", "algolia"]
-type = "lunr"
+type = "algolia"
 # 文章内容最长索引长度
 contentLength = 4000
 # 搜索框的占位提示语
@@ -482,7 +479,12 @@ isHTML = false
 
 # 用于 Hugo 输出文档的设置
 [outputs]
-home = ["HTML", "RSS", "JSON"]
+home = ["HTML", "RSS", "JSON", "Algolia"]
 page = ["HTML", "MarkDown"]
 section = ["HTML", "RSS"]
 taxonomy = ["HTML", "RSS"]
+
+[outputFormats.Algolia]
+mediaType = "application/json"
+baseName = "algolia"
+isPlainText = true

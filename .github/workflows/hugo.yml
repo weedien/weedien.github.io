@@ -4,7 +4,7 @@ name: Deploy Hugo site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: ['main']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -18,7 +18,7 @@ permissions:
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 # Default to bash
@@ -47,7 +47,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v3
       - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+        run: '[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true'
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
@@ -61,6 +61,15 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: ./public
+      - name: Upload Algolia Indexes
+        env:
+          ALGOLIA_APPID: ${{ secrets.ALGOLIA_APPID }}
+          ALGOLIA_ADMINKEY: ${{ secrets.ALGOLIA_ADMINKEY }}
+          ALGOLIA_INDEXNAME: ${{ secrets.ALGOLIA_INDEXNAME }}
+          ALGOLIA_INDEXFILE: './public/algolia.json'
+        run: |
+          npm install --location=global @algolia/cli
+          algolia import -s $ALGOLIA_INDEXFILE -a $ALGOLIA_APPID -k $ALGOLIA_ADMINKEY -n $ALGOLIA_INDEXNAME
 
   # Deployment job
   deploy:
