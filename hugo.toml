@@ -5,7 +5,7 @@ theme = 'loveit'
 defaultContentLanguage = "zh-cn"
 languageCode = "zh-CN"
 languageName = "简体中文"
-hasCJKLanguage = false
+hasCJKLanguage = true
 
 # 默认每页列表显示的文章数目
 paginate = 12
@@ -76,7 +76,7 @@ weight = 6
 identifier = "github"
 pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
 post = ""
-url = "https://github.com/weedien/weedien.github.io"
+url = "https://github.com/weedien"
 title = "GitHub"
 
 [params]
@@ -84,12 +84,11 @@ defaultTheme = "auto"
 gitRepo = "https://github.com/weedien/weedien.github.io"
 # 哪种哈希函数用来 SRI, 为空时表示不使用 SRI
 # ["sha256", "sha384", "sha512", "md5"]
-fingerprint = ""
+fingerprint = "sha256"
 # 日期格式
 dateFormat = "2006-01-02"
 # 网站标题, 用于 Open Graph 和 Twitter Cards
 title = "旷野之原"
-# website description for RSS, SEO, Open Graph and Twitter Cards
 # 网站描述, 用于 RSS, SEO, Open Graph 和 Twitter Cards
 description = "weedien的个人网站"
 # 网站图片, 用于 Open Graph 和 Twitter Cards
@@ -241,7 +240,7 @@ fraction = true
 # 是否使用 fontawesome 扩展语法
 fontawesome = true
 # 是否显示原始 Markdown 文档内容的链接
-linkToMarkdown = true
+linkToMarkdown = false
 # 是否在 RSS 中显示全文内容
 rssFullText = false
 # 目录配置
@@ -252,7 +251,7 @@ enable = true
 keepStatic = false
 # 是否使侧边目录自动折叠展开
 auto = true
-# Code config
+
 # 代码配置
 [params.page.code]
 # 是否显示代码块的复制按钮
@@ -290,7 +289,7 @@ geolocate = true
 scale = true
 # 是否添加 FullscreenControl (https://docs.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
 fullscreen = true
-# Social share links in post page
+
 # 文章页面的分享信息设置
 [params.page.share]
 enable = false
@@ -454,6 +453,7 @@ unsafe = true
 [markup.tableOfContents]
 startLevel = 2
 endLevel = 6
+# ordered = true
 
 # 网站地图配置
 [sitemap]
@@ -464,7 +464,7 @@ priority = 0.5
 # Permalinks 配置 (https://gohugo.io/content-management/urls/#permalinks)
 [Permalinks]
 # posts = ":year/:month/:filename"
-posts = ":filename"
+posts = "/posts/:slug/"
 
 # 用于输出 Markdown 格式文档的设置
 [mediaTypes]
